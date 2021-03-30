@@ -12,6 +12,7 @@ namespace TirelireLib
             {
                 if (montant > 0)
                 {
+                    MontantTotal += montant;
                     return true;
                 }
 
@@ -19,16 +20,19 @@ namespace TirelireLib
             }
             public static bool Retirer(decimal montant)
             {
-                if (montant >= 0 && montant <= MontantTotal)
+                if (montant > 0 && montant <= MontantTotal)
                 {
+                    MontantTotal -= montant;
                     return true;
                 }
 
                 return false;
             }
-            public static bool Vider()
+            public static decimal Vider()
             {
-                return true;
+                decimal argentTotal = MontantTotal;
+                MontantTotal = 0;
+                return argentTotal;
             }
         }
 
