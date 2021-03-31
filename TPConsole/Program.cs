@@ -1,10 +1,9 @@
-﻿using System;
-
+﻿
 using cstjean.info.fg.consoleplus;
 
 namespace TPConsole
 {
-    class Program
+    public class Program
     {
         public static void Main()
         {

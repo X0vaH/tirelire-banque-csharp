@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.IO;
-using System.Linq;
-using System.Text;
+
 using System.Text.Json;
-using System.Threading.Tasks;
+
 
 using TirelireLib;
 
@@ -23,7 +21,7 @@ namespace TPConsole
         {
             var programData = new ProgramData
             {
-                MontantTirelire1 = 399
+                MontantTirelire1 = 0
             };
 
             var options = new JsonSerializerOptions
