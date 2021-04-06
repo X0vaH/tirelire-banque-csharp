@@ -6,6 +6,8 @@ using cstjean.info.fg.consoleplus;
 
 using TirelireLib;
 
+using TirelireStatiqueLib;
+
 namespace TPConsole
 {
     public static class MenuTirelire1

@@ -1,11 +1,11 @@
 ﻿
 
-namespace TirelireLib
-{
+using TirelireLib;
 
+namespace TirelireStatiqueLib
+{
     public static class Opérations1
     {
-
         public static bool Déposer(decimal montant)
         {
             if (montant > 0)
@@ -32,9 +32,5 @@ namespace TirelireLib
             Tirelire1.MontantTotal = 0;
             return argentTotal;
         }
-
     }
-
-
-
 }
