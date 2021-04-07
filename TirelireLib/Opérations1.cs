@@ -1,8 +1,5 @@
 ﻿
-
-using TirelireLib;
-
-namespace TirelireStatiqueLib
+namespace TirelireLib
 {
     public static class Opérations1
     {

@@ -15,13 +15,15 @@ namespace TPConsole
         private class ProgramData
         {
             public decimal MontantTirelire1 { get; set; }
+            public decimal MontantTirelire2 { get; set; }
         }
 
         public static void Sauvegarder()
         {
             var programData = new ProgramData
             {
-                MontantTirelire1 = 0
+                MontantTirelire1 = Tirelire1.MontantTotal,
+                MontantTirelire2 = Tirelire2.MontantTotal,
             };
 
             var options = new JsonSerializerOptions
@@ -46,6 +48,7 @@ namespace TPConsole
             if (programData is null) { return; }
             //    récupérer le montant et le mettre dans la tirelire.
             Tirelire1.MontantTotal = programData.MontantTirelire1;
+            Tirelire2.MontantTotal = programData.MontantTirelire2;
         }
 
 

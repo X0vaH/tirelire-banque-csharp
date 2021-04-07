@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 using cstjean.info.fg.consoleplus;
 
 using TirelireLib;
 
-using TirelireStatiqueLib;
-
 namespace TPConsole
 {
     public static class MenuTirelire1
     {
-        private static List<string> historique = new List<string>();
-
         public static void Afficher()
         {
             do
@@ -23,23 +18,13 @@ namespace TPConsole
             } while (TraiterMenuEtContinuer());
         }
 
-        public static void Historique(string action)
-        {
-            historique.Add("> " + action + " ");
-        }
-
-        public static string GénérerHistorique()
-        {
-            return string.Join(" ", historique);
-        }
-
         private static void AfficherEntête()
         {
             ConsolePlus.WriteLine();
             ConsolePlus.WriteLine(ConsoleColor.Magenta, "AH - Tirelire 1");
             ConsolePlus.WriteLine(ConsoleColor.Magenta, "===============");
             ConsolePlus.WriteLine();
-            ConsolePlus.WriteLine("Historique: " + GénérerHistorique() + " ");
+            ConsolePlus.WriteLine("Historique: " + MenuGénéral.GénérerHistorique() + " ");
             ConsolePlus.WriteLine();
             ConsolePlus.Afficher("Actif", $"{Tirelire1.MontantTotal:C}");
             ConsolePlus.WriteLine();
@@ -84,7 +69,7 @@ namespace TPConsole
                 if (Opérations1.Déposer(montant))
                 {
                     ConsolePlus.MessageOkBloquant("Dépôt réussi");
-                    Historique("Déposer " + montant + "");
+                    MenuGénéral.Historiques("Déposer " + montant + "");
                 }
                 else
                 {
@@ -104,7 +89,7 @@ namespace TPConsole
                 if (Opérations1.Retirer(montant))
                 {
                     ConsolePlus.MessageOkBloquant("Retrait réussi");
-                    Historique("Retirer " + montant + "");
+                    MenuGénéral.Historiques("Retirer " + montant + "");
                 }
                 else
                 {
@@ -119,7 +104,7 @@ namespace TPConsole
 
         private static void Vider()
         {
-            Historique("Vider " + Tirelire1.MontantTotal + "");
+            MenuGénéral.Historiques("Vider " + Tirelire1.MontantTotal + "");
             ConsolePlus.MessageOkBloquant($"La tirelire a été vidée. Montant récupéré: {Tirelire1.MontantTotal:C}", Opérations1.Vider());
             Tirelire1.MontantTotal = 0;
         }

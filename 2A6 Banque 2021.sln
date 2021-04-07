@@ -3,16 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TirelireStatiqueLib", "TirelireLib\TirelireStatiqueLib.csproj", "{7B6E48A9-8110-42C5-BDEC-C9A27133BB43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TirelireLib", "TirelireLib\TirelireLib.csproj", "{7B6E48A9-8110-42C5-BDEC-C9A27133BB43}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2587E72A-EAC8-4A8F-A787-A366179D1085}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{E6B2F376-7F61-4361-AEDD-91CF9449C678}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{E6B2F376-7F61-4361-AEDD-91CF9449C678}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPConsole", "TPConsole\TPConsole.csproj", "{B26E0886-8D10-4CA5-8E5F-0E0DC9DD4DC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPConsole", "TPConsole\TPConsole.csproj", "{B26E0886-8D10-4CA5-8E5F-0E0DC9DD4DC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

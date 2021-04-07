@@ -1,9 +1,10 @@
 ﻿
-namespace TirelireStatiqueLib
+namespace TirelireLib
 {
     public static class Tirelire2
     {
-        public static decimal MontantTotal { get; private set; }
+
+        public static decimal MontantTotal { get; set; }
 
         public static bool Déposer(decimal montant)
         {
@@ -31,5 +32,7 @@ namespace TirelireStatiqueLib
             MontantTotal = 0;
             return argentTotal;
         }
+
+
     }
 }

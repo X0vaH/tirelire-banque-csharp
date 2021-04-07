@@ -10,7 +10,7 @@ namespace TPConsole
             ConsolePlus.Title = "AH - TP Banque";
             ConsolePlus.IndentationGénérale = 1;
             Persistance.Charger();
-            MenuTirelire1.Afficher();
+            MenuGénéral.Afficher();
             Persistance.Sauvegarder();
         }
     }
