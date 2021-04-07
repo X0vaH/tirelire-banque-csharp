@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Diagnostics;
 
 using cstjean.info.fg.consoleplus;
@@ -14,54 +15,9 @@ namespace TPConsole
             do
             {
                 ConsolePlus.Clear();
-                AfficherEntête();
-            } while (TraiterMenuEtContinuer());
+                MenuUtil.AfficherEntête(1, Tirelire1.MontantTotal);
+            } while (MenuUtil.TraiterMenuEtContinuer(Déposer, Retirer, Vider));
         }
-
-        private static void AfficherEntête()
-        {
-            ConsolePlus.WriteLine();
-            ConsolePlus.WriteLine(ConsoleColor.Magenta, "AH - Tirelire 1");
-            ConsolePlus.WriteLine(ConsoleColor.Magenta, "===============");
-            ConsolePlus.WriteLine();
-            ConsolePlus.WriteLine("Historique: " + MenuGénéral.GénérerHistorique() + " ");
-            ConsolePlus.WriteLine();
-            ConsolePlus.Afficher("Actif", $"{Tirelire1.MontantTotal:C}");
-            ConsolePlus.WriteLine();
-        }
-
-        private static bool TraiterMenuEtContinuer()
-        {
-            if (ConsolePlus.LireChoix(out string? choix, '0',
-                    "Quitter", "Déposer", "Retirer", "Vider"))
-            {
-                ConsolePlus.WriteLine();
-                switch (choix)
-                {
-                    case "Déposer":
-                        Déposer();
-                        break;
-
-                    case "Retirer":
-                        Retirer();
-                        break;
-
-                    case "Vider":
-                        Vider();
-                        break;
-
-                    case "Quitter":
-                        return false;
-
-                    default:
-                        Debug.Fail($"Cas non traité: {choix}");
-                        break;
-                }
-
-            }
-            return true;
-        }
-
         private static void Déposer()
         {
             if (ConsolePlus.LireDécimal("Montant", out decimal montant))
