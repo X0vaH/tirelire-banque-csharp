@@ -8,7 +8,7 @@ namespace TPConsole
 {
     public static class MenuUtil
     {
-        public static void AfficherEntête(int arg1, decimal arg2)
+        public static void AfficherEntête(string arg1, decimal arg2)
         {
             ConsolePlus.WriteLine();
             ConsolePlus.WriteLine(ConsoleColor.Magenta, "AH - Tirelire " + arg1 + "");

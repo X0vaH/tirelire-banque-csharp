@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-
+﻿
 using cstjean.info.fg.consoleplus;
 
 using TirelireLib;
@@ -14,7 +12,7 @@ namespace TPConsole
             do
             {
                 ConsolePlus.Clear();
-                MenuUtil.AfficherEntête(2, Tirelire2.MontantTotal);
+                MenuUtil.AfficherEntête("2", Tirelire2.MontantTotal);
             } while (MenuUtil.TraiterMenuEtContinuer(Déposer, Retirer, Vider));
         }
 

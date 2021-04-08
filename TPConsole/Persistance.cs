@@ -16,6 +16,8 @@ namespace TPConsole
         {
             public decimal MontantTirelire1 { get; set; }
             public decimal MontantTirelire2 { get; set; }
+
+            public decimal MontantTirelire3 { get; set; }
         }
 
         public static void Sauvegarder()
@@ -24,6 +26,7 @@ namespace TPConsole
             {
                 MontantTirelire1 = Tirelire1.MontantTotal,
                 MontantTirelire2 = Tirelire2.MontantTotal,
+                MontantTirelire3 = Instances.Tirelire3a.MontantTotal,
             };
 
             var options = new JsonSerializerOptions
@@ -49,6 +52,7 @@ namespace TPConsole
             //    récupérer le montant et le mettre dans la tirelire.
             Tirelire1.MontantTotal = programData.MontantTirelire1;
             Tirelire2.MontantTotal = programData.MontantTirelire2;
+            Instances.Tirelire3a.MontantTotal = programData.MontantTirelire3;
         }
 
 
