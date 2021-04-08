@@ -1,8 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using TirelireLib;
+
 using static Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 using static TirelireLib.Tirelire1;
-using TirelireStatiqueLib;
 
 namespace Tests
 {

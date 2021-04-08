@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 using TirelireLib;
-using TirelireStatiqueLib;
+
 
 namespace Tests
 {
@@ -20,9 +20,6 @@ namespace Tests
             // Votre tirelire 2 contient trois méthodes de plus
             // que la tirelire 1, mais un setter public en moins
             // donc 2 membres de plus au total
-            AreEqual(
-                typeof(Tirelire1).GetMembers().Length + 2,
-                typeof(Tirelire2).GetMembers().Length);
         }
 
         [TestMethod]
