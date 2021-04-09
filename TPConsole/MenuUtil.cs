@@ -20,6 +20,54 @@ namespace TPConsole
             ConsolePlus.WriteLine();
         }
 
+        public static void Déposer(Func<decimal, bool> déposerDsTirelire)
+        {
+            if (ConsolePlus.LireDécimal("Montant", out decimal montant))
+            {
+                if (déposerDsTirelire(montant))
+                {
+                    ConsolePlus.MessageOkBloquant("Dépôt réussi");
+                    MenuGénéral.Historiques("Déposer " + montant + "");
+                }
+                else
+                {
+                    ConsolePlus.MessageErreurBloquant("Échec du dépôt");
+                }
+            }
+            else
+            {
+                ConsolePlus.Poursuivre();
+            }
+        }
+
+        public static void Retirer(Func<decimal, bool> retirerDsTirelire)
+        {
+            if (ConsolePlus.LireDécimal("Montant", out decimal montant))
+            {
+                if (retirerDsTirelire(montant))
+                {
+                    ConsolePlus.MessageOkBloquant("Retrait réussi");
+                    MenuGénéral.Historiques("Retirer " + montant + "");
+                }
+                else
+                {
+                    ConsolePlus.MessageErreurBloquant("Échec du retrait");
+                }
+            }
+            else
+            {
+                ConsolePlus.Poursuivre();
+            }
+        }
+
+        public static void Vider(Func<decimal> viderDsTirelire)
+        {
+            var montant = viderDsTirelire();
+
+            MenuGénéral.Historiques("Vider " + montant + "");
+            ConsolePlus.MessageOkBloquant($"La tirelire a été vidée. Montant récupéré: {montant:C}", viderDsTirelire());
+        }
+
         public static bool TraiterMenuEtContinuer(Action déposer, Action retirer, Action vider)
         {
             if (ConsolePlus.LireChoix(out string? choix, '0',
@@ -51,5 +99,7 @@ namespace TPConsole
             }
             return true;
         }
+
+
     }
 }

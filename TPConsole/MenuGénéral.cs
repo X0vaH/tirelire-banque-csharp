@@ -67,12 +67,12 @@ namespace TPConsole
 
                     case "Tirelire 3a":
                         Historiques("Tirelire 3a");
-                        MenuTirelire3a.Afficher(Instances.Tirelire3a, "3a");
+                        MenuTirelire3.Afficher(Instances.Tirelire3a, "3a");
                         break;
 
                     case "Tirelire 3b":
                         Historiques("Tirelire 3a");
-                        MenuTirelire3b.Afficher(Instances.Tirelire3b, "3b");
+                        MenuTirelire3.Afficher(Instances.Tirelire3b, "3b");
                         break;
 
                     case "Reset":

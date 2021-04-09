@@ -9,58 +9,16 @@ namespace TPConsole
     {
         public static void Afficher()
         {
-            do
+            var continuer = true;
+            while (continuer)
             {
                 ConsolePlus.Clear();
                 MenuUtil.AfficherEntête("1", Tirelire1.MontantTotal);
-            } while (MenuUtil.TraiterMenuEtContinuer(Déposer, Retirer, Vider));
-        }
-        private static void Déposer()
-        {
-            if (ConsolePlus.LireDécimal("Montant", out decimal montant))
-            {
-                if (Opérations1.Déposer(montant))
-                {
-                    ConsolePlus.MessageOkBloquant("Dépôt réussi");
-                    MenuGénéral.Historiques("Déposer " + montant + "");
-                }
-                else
-                {
-                    ConsolePlus.MessageErreurBloquant("Échec du dépôt");
-                }
-            }
-            else
-            {
-                ConsolePlus.Poursuivre();
+                continuer = MenuUtil.TraiterMenuEtContinuer(
+                    () => MenuUtil.Déposer(montant => Opérations1.Déposer(montant)),
+                    () => MenuUtil.Retirer(montant => Opérations1.Retirer(montant)),
+                    () => MenuUtil.Vider(() => Opérations1.Vider()));
             }
         }
-
-        private static void Retirer()
-        {
-            if (ConsolePlus.LireDécimal("Montant", out decimal montant))
-            {
-                if (Opérations1.Retirer(montant))
-                {
-                    ConsolePlus.MessageOkBloquant("Retrait réussi");
-                    MenuGénéral.Historiques("Retirer " + montant + "");
-                }
-                else
-                {
-                    ConsolePlus.MessageErreurBloquant("Échec du retrait");
-                }
-            }
-            else
-            {
-                ConsolePlus.Poursuivre();
-            }
-        }
-
-        private static void Vider()
-        {
-            MenuGénéral.Historiques("Vider " + Tirelire1.MontantTotal + "");
-            ConsolePlus.MessageOkBloquant($"La tirelire a été vidée. Montant récupéré: {Tirelire1.MontantTotal:C}", Opérations1.Vider());
-            Tirelire1.MontantTotal = 0;
-        }
-
     }
 }
