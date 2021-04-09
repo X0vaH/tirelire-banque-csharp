@@ -5,7 +5,7 @@ using TirelireLib;
 
 namespace TPConsole
 {
-    public static class MenuTirelire3
+    public static class MenuTirelire3b
     {
         private static Tirelire3 tirelireActive = null!;
 
@@ -15,7 +15,7 @@ namespace TPConsole
             do
             {
                 ConsolePlus.Clear();
-                MenuUtil.AfficherEntête(noTirelire, Instances.Tirelire3a.MontantTotal);
+                MenuUtil.AfficherEntête(noTirelire, Instances.Tirelire3b.MontantTotal);
             } while (MenuUtil.TraiterMenuEtContinuer(Déposer, Retirer, Vider));
         }
 
@@ -65,7 +65,7 @@ namespace TPConsole
 
             MenuGénéral.Historiques("Vider " + montant + "");
             ConsolePlus.MessageOkBloquant($"La tirelire a été vidée. Montant récupéré: {montant:C}", Opérations3.Vider(tirelireActive));
-            Instances.Tirelire3a.MontantTotal = 0;
+            Instances.Tirelire3b.MontantTotal = 0;
         }
 
     }
