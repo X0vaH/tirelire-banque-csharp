@@ -27,7 +27,7 @@ namespace TPConsole
                 if (déposerDsTirelire(montant))
                 {
                     ConsolePlus.MessageOkBloquant("Dépôt réussi");
-                    MenuGénéral.Historiques("Déposer " + montant + "");
+                    MenuGénéral.Historiques("> Déposer " + montant + "");
                 }
                 else
                 {
@@ -47,7 +47,7 @@ namespace TPConsole
                 if (retirerDsTirelire(montant))
                 {
                     ConsolePlus.MessageOkBloquant("Retrait réussi");
-                    MenuGénéral.Historiques("Retirer " + montant + "");
+                    MenuGénéral.Historiques("> Retirer " + montant + "");
                 }
                 else
                 {
@@ -64,7 +64,7 @@ namespace TPConsole
         {
             var montant = viderDsTirelire();
 
-            MenuGénéral.Historiques("Vider " + montant + "");
+            MenuGénéral.Historiques("> Vider " + montant + "");
             ConsolePlus.MessageOkBloquant($"La tirelire a été vidée. Montant récupéré: {montant:C}", viderDsTirelire());
         }
 

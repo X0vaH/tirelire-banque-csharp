@@ -23,7 +23,7 @@ namespace TPConsole
 
         public static void Historiques(string action)
         {
-            historique.Add("> " + action + " ");
+            historique.Add(action);
         }
 
         public static string GénérerHistorique()
@@ -56,22 +56,22 @@ namespace TPConsole
                 switch (choix)
                 {
                     case "Tirelire 1":
-                        Historiques("Tirelire 1");
+                        Historiques("\n>> Tirelire 1");
                         MenuTirelire1();
                         break;
 
                     case "Tirelire 2":
-                        Historiques("Tirelire 2");
+                        Historiques("\n>> Tirelire 2");
                         MenuTirelire2();
                         break;
 
                     case "Tirelire 3a":
-                        Historiques("Tirelire 3a");
+                        Historiques("\n>> Tirelire 3a");
                         MenuTirelire3(Instances.Tirelire3a, "3a");
                         break;
 
                     case "Tirelire 3b":
-                        Historiques("Tirelire 3a");
+                        Historiques("\n>> Tirelire 3b");
                         MenuTirelire3(Instances.Tirelire3b, "3b");
                         break;
 
