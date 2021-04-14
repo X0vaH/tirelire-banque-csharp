@@ -19,6 +19,7 @@ namespace TPConsole
             public decimal MontantTirelire3a { get; set; }
             public decimal MontantTirelire3b { get; set; }
             public decimal MontantTirelire4a { get; set; }
+            public decimal MontantTirelire5a { get; set; }
         }
 
         public static void Sauvegarder()
@@ -30,6 +31,7 @@ namespace TPConsole
                 MontantTirelire3a = Instances.Tirelire3a.MontantTotal,
                 MontantTirelire3b = Instances.Tirelire3b.MontantTotal,
                 MontantTirelire4a = Instances.Tirelire4a.MontantTotal,
+                MontantTirelire5a = Instances.Tirelire5a.MontantTotal,
             };
 
             var options = new JsonSerializerOptions
@@ -58,6 +60,7 @@ namespace TPConsole
             Instances.Tirelire3a.MontantTotal = programData.MontantTirelire3a;
             Instances.Tirelire3b.MontantTotal = programData.MontantTirelire3b;
             Instances.Tirelire4a.MontantTotal = programData.MontantTirelire4a;
+            Instances.Tirelire5a.MontantTotal = programData.MontantTirelire5a;
 
         }
 

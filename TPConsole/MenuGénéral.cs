@@ -44,13 +44,15 @@ namespace TPConsole
             ConsolePlus.Afficher("Tirelire 3a", $"{Instances.Tirelire3a.MontantTotal:C}");
             ConsolePlus.Afficher("Tirelire 3b", $"{Instances.Tirelire3b.MontantTotal:C}");
             ConsolePlus.Afficher("Tirelire 4a", $"{Instances.Tirelire4a.MontantTotal:C}");
+            ConsolePlus.Afficher("Tirelire 5a", $"{Instances.Tirelire5a.MontantTotal:C}");
             ConsolePlus.WriteLine();
         }
 
         private static bool TraiterMenuEtContinuer()
         {
             if (ConsolePlus.LireChoix(out string? choix, 'A',
-                    "Quitter", "Reset", "Tirelire 1", "Tirelire 2", "Tirelire 3a", "Tirelire 3b", "Tirelire 4a"))
+                    "Quitter", "Reset", "Tirelire 1", "Tirelire 2", "Tirelire 3a"
+                    , "Tirelire 3b", "Tirelire 4a", "Tirelire 5a"))
             {
                 ConsolePlus.WriteLine();
                 switch (choix)
@@ -78,6 +80,11 @@ namespace TPConsole
                     case "Tirelire 4a":
                         Historiques("\n>> Tirelire 4a");
                         MenuTirelire4(Instances.Tirelire4a, "4a");
+                        break;
+
+                    case "Tirelire 5a":
+                        Historiques("\n>> Tirelire 5a");
+                        MenuTirelire5(Instances.Tirelire5a, "5a");
                         break;
 
                     case "Reset":
@@ -164,6 +171,20 @@ namespace TPConsole
                     () => MenuUtil.Déposer(montant => Déposer(tirelire, montant)),
                     () => MenuUtil.Retirer(montant => Retirer(tirelire, montant)),
                     () => MenuUtil.Vider(() => Vider(tirelire)));
+            }
+        }
+
+        private static void MenuTirelire5(Tirelire5 tirelire, string noTirelire)
+        {
+            var continuer = true;
+            while (continuer)
+            {
+                ConsolePlus.Clear();
+                MenuUtil.AfficherEntête(noTirelire, tirelire.MontantTotal);
+                continuer = MenuUtil.TraiterMenuEtContinuer(
+                    () => MenuUtil.Déposer(montant => Tirelire5.Déposer(tirelire, montant)),
+                    () => MenuUtil.Retirer(montant => Tirelire5.Retirer(tirelire, montant)),
+                    () => MenuUtil.Vider(() => Tirelire5.Vider(tirelire)));
             }
         }
 
