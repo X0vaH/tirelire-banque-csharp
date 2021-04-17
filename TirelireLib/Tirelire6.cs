@@ -3,7 +3,7 @@ namespace TirelireLib
 {
     public class Tirelire6
     {
-        public decimal MontantTotal { get; set; }
+        public decimal MontantTotal { get; protected set; }
 
         public bool Déposer(decimal montant)
         {
