@@ -45,7 +45,8 @@ namespace TPConsole
             ConsolePlus.Afficher("Tirelire 3b", $"{Instances.Tirelire3b.MontantTotal:C}");
             ConsolePlus.Afficher("Tirelire 4a", $"{Instances.Tirelire4a.MontantTotal:C}");
             ConsolePlus.Afficher("Tirelire 5a", $"{Instances.Tirelire5a.MontantTotal:C}");
-            ConsolePlus.Afficher("Tirelire 5a", $"{Instances.Tirelire6a.MontantTotal:C}");
+            ConsolePlus.Afficher("Tirelire 6a", $"{Instances.Tirelire6a.MontantTotal:C}");
+            ConsolePlus.Afficher("Tirelire 6p", $"{Instances.Tirelire6p.MontantTotal:C}");
             ConsolePlus.WriteLine();
         }
 
@@ -53,7 +54,7 @@ namespace TPConsole
         {
             if (ConsolePlus.LireChoix(out string? choix, 'A',
                     "Quitter", "Reset", "Tirelire 1", "Tirelire 2", "Tirelire 3a"
-                    , "Tirelire 3b", "Tirelire 4a", "Tirelire 5a", "Tirelire 6a"))
+                    , "Tirelire 3b", "Tirelire 4a", "Tirelire 5a", "Tirelire 6a", "Tirelire 6p"))
             {
                 ConsolePlus.WriteLine();
                 switch (choix)
@@ -93,6 +94,11 @@ namespace TPConsole
                         MenuTirelire6(Instances.Tirelire6a, "6a");
                         break;
 
+                    case "Tirelire 6p":
+                        Historiques("\n>> Tirelire 6p");
+                        MenuTirelire6(Instances.Tirelire6p, "6p");
+                        break;
+
                     case "Reset":
                         Reset();
                         break;
@@ -121,6 +127,7 @@ namespace TPConsole
                     Instances.Tirelire4a.MontantTotal = 0;
                     Instances.Tirelire5a.MontantTotal = 0;
                     Instances.Tirelire6a.MontantTotal = 0;
+                    Instances.Tirelire6p.MontantTotal = 0;
                     historique.Clear();
                 }
             }
@@ -204,9 +211,9 @@ namespace TPConsole
                 ConsolePlus.Clear();
                 MenuUtil.AfficherEntête(noTirelire, tirelire.MontantTotal);
                 continuer = MenuUtil.TraiterMenuEtContinuer(
-                    () => MenuUtil.Déposer(montant => Instances.Tirelire6a.Déposer(montant)),
-                    () => MenuUtil.Retirer(montant => Instances.Tirelire6a.Retirer(montant)),
-                    () => MenuUtil.Vider(() => Instances.Tirelire6a.Vider()));
+                    () => MenuUtil.Déposer(montant => tirelire.Déposer(montant)),
+                    () => MenuUtil.Retirer(montant => tirelire.Retirer(montant)),
+                    () => MenuUtil.Vider(() => tirelire.Vider()));
             }
         }
 
