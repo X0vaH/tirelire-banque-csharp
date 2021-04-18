@@ -6,6 +6,8 @@ using cstjean.info.fg.consoleplus;
 
 using TirelireLib;
 
+using static TPConsole.Instances;
+
 namespace TPConsole
 {
     public static class MenuGénéral
@@ -41,12 +43,12 @@ namespace TPConsole
             ConsolePlus.WriteLine();
             ConsolePlus.Afficher("Tirelire 1", $"{Tirelire1.MontantTotal:C}");
             ConsolePlus.Afficher("Tirelire 2", $"{Tirelire2.MontantTotal:C}");
-            ConsolePlus.Afficher("Tirelire 3a", $"{Instances.Tirelire3a.MontantTotal:C}");
-            ConsolePlus.Afficher("Tirelire 3b", $"{Instances.Tirelire3b.MontantTotal:C}");
-            ConsolePlus.Afficher("Tirelire 4a", $"{Instances.Tirelire4a.MontantTotal:C}");
-            ConsolePlus.Afficher("Tirelire 5a", $"{Instances.Tirelire5a.MontantTotal:C}");
-            ConsolePlus.Afficher("Tirelire 6a", $"{Instances.Tirelire6a.MontantTotal:C}");
-            ConsolePlus.Afficher("Tirelire 6p", $"{Instances.Tirelire6p.MontantTotal:C}");
+            ConsolePlus.Afficher("Tirelire 3a", $"{MesInstances.Tirelire3a.MontantTotal:C}");
+            ConsolePlus.Afficher("Tirelire 3b", $"{MesInstances.Tirelire3b.MontantTotal:C}");
+            ConsolePlus.Afficher("Tirelire 4a", $"{MesInstances.Tirelire4a.MontantTotal:C}");
+            ConsolePlus.Afficher("Tirelire 5a", $"{MesInstances.Tirelire5a.MontantTotal:C}");
+            ConsolePlus.Afficher("Tirelire 6a", $"{MesInstances.Tirelire6a.MontantTotal:C}");
+            ConsolePlus.Afficher("Tirelire 6p", $"{MesInstances.Tirelire6p.MontantTotal:C}");
             ConsolePlus.WriteLine();
         }
 
@@ -71,32 +73,32 @@ namespace TPConsole
 
                     case "Tirelire 3a":
                         Historiques("\n>> Tirelire 3a");
-                        MenuTirelire3(Instances.Tirelire3a, "3a");
+                        MenuTirelire3(MesInstances.Tirelire3a, "3a");
                         break;
 
                     case "Tirelire 3b":
                         Historiques("\n>> Tirelire 3b");
-                        MenuTirelire3(Instances.Tirelire3b, "3b");
+                        MenuTirelire3(MesInstances.Tirelire3b, "3b");
                         break;
 
                     case "Tirelire 4a":
                         Historiques("\n>> Tirelire 4a");
-                        MenuTirelire4(Instances.Tirelire4a, "4a");
+                        MenuTirelire4(MesInstances.Tirelire4a, "4a");
                         break;
 
                     case "Tirelire 5a":
                         Historiques("\n>> Tirelire 5a");
-                        MenuTirelire5(Instances.Tirelire5a, "5a");
+                        MenuTirelire5(MesInstances.Tirelire5a, "5a");
                         break;
 
                     case "Tirelire 6a":
                         Historiques("\n>> Tirelire 6a");
-                        MenuTirelire6(Instances.Tirelire6a, "6a");
+                        MenuTirelire6(MesInstances.Tirelire6a, "6a");
                         break;
 
                     case "Tirelire 6p":
                         Historiques("\n>> Tirelire 6p");
-                        MenuTirelire6(Instances.Tirelire6p, "6p");
+                        MenuTirelire6(MesInstances.Tirelire6p, "6p");
                         break;
 
                     case "Reset":
@@ -122,12 +124,12 @@ namespace TPConsole
                 {
                     Tirelire1.MontantTotal = 0;
                     Tirelire2.MontantTotal = 0;
-                    Instances.Tirelire3a.MontantTotal = 0;
-                    Instances.Tirelire3b.MontantTotal = 0;
-                    Instances.Tirelire4a.MontantTotal = 0;
-                    Instances.Tirelire5a.MontantTotal = 0;
-                    Instances.Tirelire6a.MontantTotal = 0;
-                    Instances.Tirelire6p.MontantTotal = 0;
+                    MesInstances.Tirelire3a.MontantTotal = 0;
+                    MesInstances.Tirelire3b.MontantTotal = 0;
+                    MesInstances.Tirelire4a.MontantTotal = 0;
+                    MesInstances.Tirelire5a.MontantTotal = 0;
+                    MesInstances.Tirelire6a.MontantTotal = 0;
+                    MesInstances.Tirelire6p.MontantTotal = 0;
                     historique.Clear();
                 }
             }
