@@ -1,6 +1,4 @@
 ﻿
-using System;
-
 namespace TirelireLib
 {
     public class Tirelire9

@@ -57,12 +57,15 @@ namespace TPConsole
         private static bool TraiterMenuEtContinuer()
         {
             if (ConsolePlus.LireChoix(out string? choix, 'A',
-                    "Quitter", "Reset", "Tirelire 1", "Tirelire 2", "Tirelire 3a"
+                    "Quitter", "Reset", "Planter", "Tirelire 1", "Tirelire 2", "Tirelire 3a"
                     , "Tirelire 3b", "Tirelire 4a", "Tirelire 5a", "Tirelire 6a", "Tirelire 6p", "Tirelire 7a", "Tirelire 9a"))
             {
                 ConsolePlus.WriteLine();
                 switch (choix)
                 {
+                    case "Planter":
+                        throw new InvalidOperationException("AH dit Boom!");
+
                     case "Tirelire 1":
                         Historiques("\n>> Tirelire 1");
                         MenuTirelire1();
