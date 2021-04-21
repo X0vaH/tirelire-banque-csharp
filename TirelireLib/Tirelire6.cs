@@ -1,9 +1,8 @@
 ﻿
 namespace TirelireLib
 {
-    public class Tirelire6
+    public class Tirelire6 : ActifDeBase
     {
-        public decimal MontantTotal { get; set; }
 
         public bool Déposer(decimal montant)
         {

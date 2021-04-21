@@ -1,10 +1,8 @@
 ﻿
 namespace TirelireLib
 {
-    public class Tirelire9
+    public class Tirelire9 : ActifDeBase
     {
-        public decimal MontantTotal { get; set; }
-
         public bool Déposer(decimal montant)
         {
             if (montant > 0)
@@ -25,6 +23,7 @@ namespace TirelireLib
 
             return false;
         }
+
         public decimal Vider()
         {
             decimal argentTotal = this.MontantTotal;

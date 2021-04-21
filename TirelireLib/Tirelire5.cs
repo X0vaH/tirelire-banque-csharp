@@ -1,13 +1,8 @@
 ﻿
-using System.Text.Json.Serialization;
-
 namespace TirelireLib
 {
-    public class Tirelire5
+    public class Tirelire5 : ActifDeBase
     {
-        [JsonInclude]
-        public decimal MontantTotal { get; set; }
-
         public static bool Déposer(Tirelire5 tirelire, decimal montant)
         {
             if (montant > 0)
