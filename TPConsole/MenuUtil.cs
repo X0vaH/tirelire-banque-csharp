@@ -46,7 +46,12 @@ namespace TPConsole
         {
             if (ConsolePlus.LireDécimal("Montant", out decimal montant))
             {
-                if (déposerDsTirelire(montant))
+                if (Math.Round(montant, 2) != montant)
+                {
+                    ConsolePlus.MessageErreurBloquant($"Impossible de déposer des fractions de cents.\n" +
+                        "Le montant est trop précis.");
+                }
+                else if (déposerDsTirelire(montant))
                 {
                     ConsolePlus.MessageOkBloquant("Dépôt réussi");
                     MenuGénéral.Historiques("> Déposer " + montant + "");
@@ -67,7 +72,12 @@ namespace TPConsole
         {
             if (ConsolePlus.LireDécimal("Montant", out decimal montant))
             {
-                if (retirerDsTirelire(montant))
+                if (Math.Round(montant, 2) != montant)
+                {
+                    ConsolePlus.MessageErreurBloquant($"Impossible de retirer des fractions de cents.\n" +
+                        "Le montant est trop précis.");
+                }
+                else if (retirerDsTirelire(montant))
                 {
                     ConsolePlus.MessageOkBloquant("Retrait réussi");
                     MenuGénéral.Historiques("> Retirer " + montant + "");

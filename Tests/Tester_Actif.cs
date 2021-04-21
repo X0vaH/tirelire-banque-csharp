@@ -13,13 +13,11 @@ namespace Tests
         public void T1_ActifDeBase()
         {
             IsTrue(typeof(ActifDeBase).IsAbstract);
-            var tirelire = new Tirelire9();
         }
 
         [TestMethod]
         public void T2_ActifVidable()
         {
-            var tirelire = new Tirelire9();
         }
 
         [TestMethod]
