@@ -50,6 +50,7 @@ namespace TPConsole
             ConsolePlus.Afficher("Tirelire 6a", $"{MesInstances.Tirelire6a.MontantTotal:C}");
             ConsolePlus.Afficher("Tirelire 6p", $"{MesInstances.Tirelire6p.MontantTotal:C}");
             ConsolePlus.Afficher("Tirelire 7a", $"{MesInstances.Tirelire7a.MontantTotal:C}");
+            ConsolePlus.Afficher("Tirelire 9a", $"{MesInstances.Tirelire9a.MontantTotal:C}");
             ConsolePlus.WriteLine();
         }
 
@@ -57,7 +58,7 @@ namespace TPConsole
         {
             if (ConsolePlus.LireChoix(out string? choix, 'A',
                     "Quitter", "Reset", "Tirelire 1", "Tirelire 2", "Tirelire 3a"
-                    , "Tirelire 3b", "Tirelire 4a", "Tirelire 5a", "Tirelire 6a", "Tirelire 6p", "Tirelire 7a"))
+                    , "Tirelire 3b", "Tirelire 4a", "Tirelire 5a", "Tirelire 6a", "Tirelire 6p", "Tirelire 7a", "Tirelire 9a"))
             {
                 ConsolePlus.WriteLine();
                 switch (choix)
@@ -104,7 +105,12 @@ namespace TPConsole
 
                     case "Tirelire 7a":
                         Historiques("\n>> Tirelire 7a");
-                        MenuTirelire7((Tirelire7)MesInstances.Tirelire7a, "7a");
+                        MenuTirelire7(MesInstances.Tirelire7a, "7a");
+                        break;
+
+                    case "Tirelire 9a":
+                        Historiques("\n>> Tirelire 9a");
+                        MenuTirelire9(MesInstances.Tirelire9a, "9a");
                         break;
 
                     case "Reset":
@@ -121,6 +127,7 @@ namespace TPConsole
             }
             return true;
         }
+
         private static void Reset()
         {
             Console.WriteLine();
@@ -137,6 +144,7 @@ namespace TPConsole
                     MesInstances.Tirelire6a.MontantTotal = 0;
                     MesInstances.Tirelire6p.MontantTotal = 0;
                     MesInstances.Tirelire7a.MontantTotal = 0;
+                    MesInstances.Tirelire9a.MontantTotal = 0;
                     historique.Clear();
                 }
             }
@@ -240,7 +248,19 @@ namespace TPConsole
             }
         }
 
-
+        private static void MenuTirelire9(Tirelire9 tirelire, string noTirelire)
+        {
+            var continuer = true;
+            while (continuer)
+            {
+                ConsolePlus.Clear();
+                MenuUtil.AfficherEntête(noTirelire, tirelire.MontantTotal);
+                continuer = MenuUtil.TraiterMenuEtContinuer(
+                    () => MenuUtil.Déposer9(montant => tirelire.Déposer(montant)),
+                    () => MenuUtil.Retirer9(montant => tirelire.Retirer(montant), tirelire),
+                    () => MenuUtil.Vider(() => tirelire.Vider()));
+            }
+        }
 
         public static bool Déposer(this Tirelire4 tirelire, decimal montant)
         {

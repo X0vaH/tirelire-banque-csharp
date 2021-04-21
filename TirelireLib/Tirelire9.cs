@@ -7,28 +7,25 @@ namespace TirelireLib
     {
         public decimal MontantTotal { get; set; }
 
-        public void Déposer(decimal montant)
+        public bool Déposer(decimal montant)
         {
-            if (montant <= 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(montant), montant, "Trop petit");
-            }
-            else
+            if (montant > 0)
             {
                 this.MontantTotal += montant;
+                return true;
             }
+
+            return false;
         }
-        public void Retirer(decimal montant)
+        public bool Retirer(decimal montant)
         {
-            if (montant > this.MontantTotal)
+            if (montant > 0 && montant <= this.MontantTotal)
             {
-                throw new ArgumentOutOfRangeException(nameof(montant), montant, "Trop grand");
+                this.MontantTotal -= montant;
+                return true;
             }
-            if (montant <= 0)
-            {
-                throw new ArgumentException("Trop petit", nameof(montant));
-            }
-            this.MontantTotal -= montant;
+
+            return false;
         }
         public decimal Vider()
         {

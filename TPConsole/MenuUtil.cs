@@ -4,6 +4,8 @@ using System.Diagnostics;
 
 using cstjean.info.fg.consoleplus;
 
+using TirelireLib;
+
 namespace TPConsole
 {
     public static class MenuUtil
@@ -32,6 +34,53 @@ namespace TPConsole
                 else
                 {
                     ConsolePlus.MessageErreurBloquant("Échec du dépôt");
+                }
+            }
+            else
+            {
+                ConsolePlus.Poursuivre();
+            }
+        }
+
+        public static void Déposer9(Func<decimal, bool> déposerDsTirelire)
+        {
+            if (ConsolePlus.LireDécimal("Montant", out decimal montant))
+            {
+                if (déposerDsTirelire(montant))
+                {
+                    ConsolePlus.MessageOkBloquant("Dépôt réussi");
+                    MenuGénéral.Historiques("> Déposer " + montant + "");
+                }
+                else if (montant < 0)
+                {
+                    ConsolePlus.MessageErreurBloquant($"Impossible de déposer {montant:C}.\n" +
+                        "Le montant doit être positif.");
+                }
+            }
+            else
+            {
+                ConsolePlus.Poursuivre();
+            }
+        }
+
+        public static void Retirer9(Func<decimal, bool> retirerDsTirelire, Tirelire9 tirelire)
+        {
+            if (ConsolePlus.LireDécimal("Montant", out decimal montant))
+            {
+                if (retirerDsTirelire(montant))
+                {
+                    ConsolePlus.MessageOkBloquant("Retrait réussi");
+                    MenuGénéral.Historiques("> Retirer " + montant + "");
+                }
+                else if (montant <= 0)
+                {
+                    ConsolePlus.MessageErreurBloquant($"Impossible de retirer {montant:C}.\n" +
+                        "Le montant doit être positif.");
+                }
+                else if (montant > tirelire.MontantTotal)
+                {
+                    ConsolePlus.MessageErreurBloquant($"Impossible de retirer {montant:C}.\n" +
+                        "Actif insuffisant.");
                 }
             }
             else
