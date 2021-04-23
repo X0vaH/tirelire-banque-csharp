@@ -9,7 +9,6 @@ namespace TPConsole
     {
         public static void Main()
         {
-            ConsolePlus.SetWindowSize(80, 35);
             ConsolePlus.Title = "AH - TP Banque";
             ConsolePlus.IndentationGénérale = 1;
             Persistance.Charger();

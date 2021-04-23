@@ -54,10 +54,22 @@ namespace TPConsole
             ConsolePlus.WriteLine();
         }
 
+        private static void AfficherEntête2()
+        {
+            ConsolePlus.WriteLine();
+            ConsolePlus.WriteLine(ConsoleColor.Magenta, "AH - Menu général");
+            ConsolePlus.WriteLine(ConsoleColor.Magenta, "===============");
+            ConsolePlus.WriteLine();
+            ConsolePlus.WriteLine("Historique: " + GénérerHistorique() + " ");
+            ConsolePlus.WriteLine();
+            ConsolePlus.Afficher("Tirelire 9a", $"{MesInstances.Tirelire9a.MontantTotal:C}");
+            ConsolePlus.WriteLine();
+        }
+
         private static bool TraiterMenuEtContinuer()
         {
             if (ConsolePlus.LireChoix(out string? choix, 'A',
-                    "Quitter", "Reset", "Planter", "Tirelire 1", "Tirelire 2", "Tirelire 3a"
+                    "Quitter", "Reset", "Planter", "Réduire", "Tirelire 1", "Tirelire 2", "Tirelire 3a"
                     , "Tirelire 3b", "Tirelire 4a", "Tirelire 5a", "Tirelire 6a", "Tirelire 6p", "Tirelire 7a", "Tirelire 9a"))
             {
                 ConsolePlus.WriteLine();
@@ -65,6 +77,10 @@ namespace TPConsole
                 {
                     case "Planter":
                         throw new InvalidOperationException("AH dit Boom!");
+
+                    case "Réduire":
+                        Réduire();
+                        break;
 
                     case "Tirelire 1":
                         Historiques("\n>> Tirelire 1");
@@ -123,6 +139,57 @@ namespace TPConsole
                     case "Quitter":
                         return false;
 
+                    default:
+                        Debug.Fail($"Cas non traité: {choix}");
+                        break;
+                }
+            }
+            return true;
+        }
+
+        private static void Réduire()
+        {
+            ConsolePlus.SetWindowSize(80, 35);
+            do
+            {
+                ConsolePlus.Clear();
+                AfficherEntête2();
+            } while (TraiterMenuEtContinuer2());
+
+        }
+
+        private static string[] Options()
+        {
+            string[] options = new string[] { "Quitter", "Reset", "Planter", "Étendre", "Tirelire 9a" };
+
+            return options;
+        }
+
+        private static bool TraiterMenuEtContinuer2()
+        {
+            if (ConsolePlus.LireChoix(out string? choix, 'A', Options()))
+            {
+                ConsolePlus.WriteLine();
+                switch (choix)
+                {
+                    case "Quitter":
+                        return false;
+
+                    case "Reset":
+                        Reset();
+                        break;
+
+                    case "Planter":
+                        throw new InvalidOperationException("AH dit Boom!");
+
+                    case "Étendre":
+                        Afficher();
+                        break;
+
+                    case "Tirelire 9a":
+                        Historiques("\n>> Tirelire 9a");
+                        MenuTirelire9(MesInstances.Tirelire9a, "9a");
+                        break;
                     default:
                         Debug.Fail($"Cas non traité: {choix}");
                         break;
