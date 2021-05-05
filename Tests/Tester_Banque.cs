@@ -140,6 +140,9 @@ namespace Tests
         {
             AreEqual(0, 0);
             AreEqual(0, 0);
+            AreEqual(0, 0);
+            AreEqual(0, 0);
+            AreEqual(0, 0);
         }
 
 
