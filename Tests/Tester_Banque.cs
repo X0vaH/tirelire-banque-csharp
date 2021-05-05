@@ -29,19 +29,14 @@ namespace Tests
         }
 
         [TestMethod]
-        [DataRow(1, 2, 1, 1)]
-        [DataRow(2, 3, 3, 2)]
-        [DataRow(3, 6, 7, 3)]
-        [DataRow(4, 9, 15, 4)]
-        [DataRow(5, 11, 31, 4, 1, 16)]
-        [DataRow(6, 14, 63, 4, 2, 48)]
-        [DataRow(7, 15, 127, 4, 3, 112)]
-        [DataRow(8, 16, 127, 4, 3, 112, 1)]
-        [DataRow(9, 20, 127, 4, 3, 112, 2)]
-        public void T2_Construction_Avec_Comptes(int nb, int prochain,
-            int actifTotal, int nbActifs, int nbGelés = 0,
-            int actifGelé = 0, int nbFermés = 0)
+        [DataRow("Machin")]
+        [DataRow("Truc")]
+        [DataRow("Machin")]
+        [DataRow("Truc")]
+        public void T2_Construction_Avec_Comptes(string nom)
         {
+            AreEqual(0, 0);
+            AreEqual(0, 0);
             AreEqual(0, 0);
         }
 
@@ -52,13 +47,22 @@ namespace Tests
         }
 
         [TestMethod]
-        public void T2c_Construction_Avec_Comptes_Clonés()
+        [DataRow("Machin")]
+        [DataRow("Truc")]
+        [DataRow("Machin")]
+        [DataRow("Truc")]
+        [DataRow("Machin")]
+        [DataRow("Truc")]
+        public void T2c_Construction_Avec_Comptes_Clonés(string nom)
         {
+            AreEqual(0, 0);
             AreEqual(0, 0);
         }
 
         [TestMethod]
-        public void T2e_BONUS_Construction_Avec_Doublons()
+        [DataRow("Machin")]
+        [DataRow("Truc")]
+        public void T2e_BONUS_Construction_Avec_Doublons(string nom)
         {
             AreEqual(0, 0);
         }
@@ -67,6 +71,9 @@ namespace Tests
         [TestMethod]
         public void T3_Ouvrir_Compte()
         {
+            AreEqual(0, 0);
+            AreEqual(0, 0);
+            AreEqual(0, 0);
             AreEqual(0, 0);
         }
 
@@ -77,6 +84,7 @@ namespace Tests
         public void T3e_Ouvrir_Compte_Titulaire_Erroné(string titulaire)
         {
             AreEqual(0, 0);
+            AreEqual(0, 0);
         }
 
         [TestMethod]
@@ -85,10 +93,13 @@ namespace Tests
         public void T3f_Ouvrir_Compte_Montant_Erroné(int miseDeFond)
         {
             AreEqual(0, 0);
+            AreEqual(0, 0);
         }
 
         [TestMethod]
-        public void T4_Détruire_Compte()
+        [DataRow("Machin")]
+        [DataRow("Truc")]
+        public void T4_Détruire_Compte(string nom)
         {
             AreEqual(0, 0);
         }
@@ -111,6 +122,9 @@ namespace Tests
         public void T4f_Détruire_Compte_Pas_Fermé(int numéro)
         {
             AreEqual(0, 0);
+            AreEqual(0, 0);
+            AreEqual(0, 0);
+            AreEqual(0, 0);
         }
 
 
@@ -125,6 +139,7 @@ namespace Tests
         public void T5_Verser_Intérêts(int pourcentage, double intérêtsAttendus, int nbVidés = 0)
         {
             AreEqual(0, 0);
+            AreEqual(0, 0);
         }
 
 
@@ -133,6 +148,7 @@ namespace Tests
         [DataRow(-10)]
         public void T5e_Verser_Intérêts_Pourcentage_Erroné(int pourcentage)
         {
+            AreEqual(0, 0);
             AreEqual(0, 0);
         }
 
