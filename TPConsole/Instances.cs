@@ -1,9 +1,11 @@
 ﻿
 using TirelireLib;
 
+using BanqueLib;
+
 namespace TPConsole
 {
-    public class Instances
+    public abstract class Instances
     {
         public Tirelire3 Tirelire3a { get; init; } = new Tirelire3();
         public Tirelire3 Tirelire3b { get; init; } = new Tirelire3();
@@ -13,6 +15,7 @@ namespace TPConsole
         public Tirelire6 Tirelire6p { get; init; } = new Tirelire6();
         public Tirelire7 Tirelire7a { get; init; } = new Tirelire7();
         public Tirelire9 Tirelire9a { get; init; } = new Tirelire9();
+        public static Compte1 Compte1(int numéro, string titulaire, decimal montantTotal = 0);
         public static Instances MesInstances { get; set; } = new Instances();
     }
 }

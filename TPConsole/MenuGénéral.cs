@@ -63,6 +63,7 @@ namespace TPConsole
             ConsolePlus.WriteLine("Historique: " + GénérerHistorique() + " ");
             ConsolePlus.WriteLine();
             ConsolePlus.Afficher("Tirelire 9a", $"{MesInstances.Tirelire9a.MontantTotal:C}");
+            ConsolePlus.Afficher("Mon compte 1", $"{MesInstances.Compte1.MontantTotal:C}");
             ConsolePlus.WriteLine();
         }
 
@@ -70,7 +71,7 @@ namespace TPConsole
         {
             if (ConsolePlus.LireChoix(out string? choix, 'A',
                     "Quitter", "Reset", "Planter", "Réduire", "Tirelire 1", "Tirelire 2", "Tirelire 3a"
-                    , "Tirelire 3b", "Tirelire 4a", "Tirelire 5a", "Tirelire 6a", "Tirelire 6p", "Tirelire 7a", "Tirelire 9a"))
+                    , "Tirelire 3b", "Tirelire 4a", "Tirelire 5a", "Tirelire 6a", "Tirelire 6p", "Tirelire 7a", "Tirelire 9a", "Mon compte 1"))
             {
                 ConsolePlus.WriteLine();
                 switch (choix)

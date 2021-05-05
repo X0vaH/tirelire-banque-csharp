@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BanqueLib\BanqueLib.csproj" />
     <ProjectReference Include="..\TirelireLib\TirelireLib.csproj" />
   </ItemGroup>
 

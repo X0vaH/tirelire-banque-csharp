@@ -1,66 +1,49 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using TirelireLib;
-
 using static Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
-using static TirelireLib.Tirelire1;
 
 namespace Tests
 {
     [TestClass, TestCategory("AH")]
-    public class Tester_Tirelire_1
+    public partial class Tester_Tirelire_1
     {
         [TestMethod]
-        public void T1_Déposer()
+        public void T1a_Construction_De_Base()
         {
-            MontantTotal = 0;
-            AreEqual(0, MontantTotal);
-
-            IsFalse(Opérations1.Déposer(0));
-            IsFalse(Opérations1.Déposer(-10));
-
-            IsTrue(Opérations1.Déposer(100));
-            IsTrue(Opérations1.Déposer(50));
-
-            IsFalse(Opérations1.Déposer(0));
-            IsFalse(Opérations1.Déposer(-10));
-
-            AreEqual(150, MontantTotal);
+            AreEqual(0, 0);
         }
 
         [TestMethod]
-        public void T2_Vider()
+        public void T1b_Construction_Montant()
         {
-            MontantTotal = 0;
-            AreEqual(0, Opérations1.Vider());
-            IsTrue(Opérations1.Déposer(100));
-            AreEqual(100, Opérations1.Vider());
-            AreEqual(0, MontantTotal);
-            IsTrue(Opérations1.Déposer(500));
-            AreEqual(500, Opérations1.Vider());
-            AreEqual(0, MontantTotal);
+            AreEqual(0, 0);
         }
 
         [TestMethod]
-        public void T3_Retirer()
+        public void T2a_Construction_Numéro_Invalide()
         {
-            MontantTotal = 0;
-            AreEqual(0, MontantTotal);
-
-            IsFalse(Opérations1.Retirer(0));
-            IsFalse(Opérations1.Retirer(-10));
-            IsFalse(Opérations1.Retirer(1));
-
-            IsTrue(Opérations1.Déposer(1000));
-            IsTrue(Opérations1.Retirer(50));
-            IsTrue(Opérations1.Retirer(100));
-
-            IsFalse(Opérations1.Retirer(0));
-            IsFalse(Opérations1.Retirer(-10));
-            IsFalse(Opérations1.Retirer(851));
-
-            AreEqual(850, MontantTotal);
+            AreEqual(0, 0);
         }
 
+        [TestMethod]
+        public void T2b_Construction_Titulaire_Invalide()
+        {
+            AreEqual(0, 0);
+        }
+
+        [TestMethod]
+        public void T2c_Construction_Montant_Invalide()
+        {
+            AreEqual(0, 0);
+        }
+
+        [TestMethod]
+        public void T3a_OpérationsDeBase()
+        {
+            AreEqual(0, 0);
+        }
     }
+
+
+
 }
