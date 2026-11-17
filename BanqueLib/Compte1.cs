@@ -55,8 +55,6 @@ namespace BanqueLib
             && c.Titulaire == this.Titulaire;
 
         public override int GetHashCode()
-        {
-            throw new NotImplementedException();
-        }
+            => HashCode.Combine(this.Numéro, this.MontantTotal, this.Titulaire);
     }
 }
